@@ -49,15 +49,12 @@ public class RecipesNASA implements IRecipePool {
         final Fluid i140 = FluidRegistry.getFluid("molten.indalloy140");
 
         // Only register NASA recipes if the required mods are present
-        ItemStack schematic = GTModHandler.getModItem(GalacticraftCore.ID, "item.Schematics", 0, 0);
-        boolean hasSchematic = schematic != null;
         ItemStack rocketOutput = GTModHandler.getModItem(GalacticraftCore.ID, "item.spaceship", 1, 0);
         ItemStack droneOutput = GTModHandler.getModItem(GTNHIntergalactic.ID, "item.MiningDrone", 1, 0);
         ItemStack platingOutput = p != null ? new ItemStack(p.getItem(), 64) : null;
 
         // rocket: exactly 70 item inputs to match maxIO(70, 1, 7, 3)
-        if (hasSchematic && rocketOutput != null
-            && n != null
+        if (rocketOutput != null && n != null
             && p != null
             && l != null
             && c != null
@@ -139,9 +136,10 @@ public class RecipesNASA implements IRecipePool {
                 .itemOutputs(rocketOutput)
                 .eut(100)
                 .duration(100)
-                .special(schematic)
                 .addTo(NASA);
-            // drone: exactly 70 item inputs
+        }
+        // drone: exactly 70 item inputs
+        if (droneOutput != null && p != null && c != null && e != null && d != null) {
             GTRecipeBuilder.builder()
                 .itemInputs(
                     f,
@@ -217,11 +215,10 @@ public class RecipesNASA implements IRecipePool {
                 .itemOutputs(droneOutput)
                 .eut(100)
                 .duration(100)
-                .special(schematic)
                 .addTo(NASA);
         }
         // plating
-        if (hasSchematic && platingOutput != null) {
+        if (platingOutput != null && i140 != null) {
             GTRecipeBuilder.builder()
                 .itemInputsUnsafe(
                     Materials.Bronze.getPlates(48 * 3),
@@ -229,7 +226,6 @@ public class RecipesNASA implements IRecipePool {
                     Materials.Steel.getPlates(48 * 3))
                 .itemOutputs(platingOutput)
                 .fluidInputs(new FluidStack(i140, 144))
-                .special(schematic)
                 .duration(240)
                 .eut(1920)
                 .addTo(NASA);
