@@ -271,14 +271,14 @@ public class OTHItemCombs extends Item {
         // Mad Glass
         RecipeBuilder.builder()
             .itemInputs(OTHCombTypes.NORMALGLASS.getStackForType(1))
-            .itemOutputs(new ItemStack(Blocks.glass, 1), GTModHandler.getModItem(Forestry.ID, "honeyDrop", 1))
+            .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dust, Materials.Glass, 1), GTModHandler.getModItem(Forestry.ID, "honeyDrop", 1))
             .outputChances(100, 25)
             .eut(TierEU.HV)
             .duration(20 * 20)
             .addTo(RecipeMaps.centrifugeRecipes);
         RecipeBuilder.builder()
             .itemInputs(OTHCombTypes.NORMALGLASS.getStackForType(1))
-            .itemOutputs(new ItemStack(Blocks.glass, 1), GTModHandler.getModItem(Forestry.ID, "honeyDrop", 1))
+            .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dust, Materials.Glass, 1), GTModHandler.getModItem(Forestry.ID, "honeyDrop", 1))
             .outputChances(100, 25)
             .eut(TierEU.HV)
             .duration(20 * 20)

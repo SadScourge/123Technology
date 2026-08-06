@@ -3,7 +3,6 @@ package com.newmaa.othtech.common.beeyonds;
 import static com.newmaa.othtech.common.OTHItemList.itemEnqingM;
 import static com.newmaa.othtech.common.beeyonds.OTHBeeDefinitionReference.*;
 import static forestry.api.apiculture.EnumBeeChromosome.*;
-import static forestry.api.apiculture.EnumBeeChromosome.FLOWER_PROVIDER;
 import static forestry.api.core.EnumHumidity.DAMP;
 import static gregtech.api.enums.Mods.*;
 import static gregtech.loaders.misc.GTBeeDefinition.*;
@@ -111,8 +110,7 @@ public enum OTHBeeDefinition implements IBeeDefinition {
                                                                                                                   // CASING
     }),
     GLAS(OTHBranchDefinition.OTHBYDS, "Glass", true, new Color(0xFFFFFFFF), new Color(0xFFFFFFFF), beeSpecies -> {
-        beeSpecies.addProduct(new ItemStack(Blocks.glass, 4), 0.9F);
-        beeSpecies.addProduct(new ItemStack(Blocks.glass_pane, 12), 0.9F);
+        beeSpecies.addProduct(OTHBeeyonds.combs.getStackForType(OTHCombTypes.NORMALGLASS), 0.1F);
         beeSpecies.addSpecialty(OTHBeeyonds.combs.getStackForType(OTHCombTypes.NORMALGLASS), 0.3F);
         beeSpecies.setHumidity(DAMP);
         beeSpecies.setTemperature(EnumTemperature.NORMAL);
@@ -171,21 +169,6 @@ public enum OTHBeeDefinition implements IBeeDefinition {
         }, dis -> {
             IBeeMutationCustom tMutation = dis.registerMutation(JIUCAI.getSpecies(), WEIWEI.getSpecies(), 1);
             tMutation.requireResource(GregTechAPI.sBlockMachines, 23520 + 17); // Enqing Factory
-        }),
-    IRONOTH(OTHBranchDefinition.OTHBYDS, "Iron", true, new Color(0xD0FFFFFF, true), new Color(0x96FFFFFF, true),
-        beeSpecies -> {
-            beeSpecies.addProduct(new ItemStack(Blocks.iron_block, 16), 1F);
-            beeSpecies.setHumidity(DAMP);
-            beeSpecies.setTemperature(EnumTemperature.NORMAL);
-        }, template -> {
-            AlleleHelper.instance.set(template, FLOWERING, EnumAllele.Flowering.MAXIMUM);
-            AlleleHelper.instance.set(template, HUMIDITY_TOLERANCE, EnumAllele.Tolerance.NONE);
-            AlleleHelper.instance.set(template, EFFECT, AlleleEffect.effectNone);
-            AlleleHelper.instance.set(template, FLOWER_PROVIDER, EnumAllele.Flowers.VANILLA);
-        }, dis -> {
-            IBeeMutationCustom tMutation = dis
-                .registerMutation(GTBeeDefinition.IRON.getSpecies(), CLAY.getSpecies(), 100);
-            tMutation.requireResource(Blocks.iron_ore, 0); // Enqing Factory
         }),
     SHENGXI(OTHBranchDefinition.OTHBYDS, "shengxi", true, new Color(0xFFEE14BB, true), new Color(0xFF7C18D2, true),
         beeSpecies -> {
