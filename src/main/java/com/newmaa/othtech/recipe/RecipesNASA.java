@@ -49,8 +49,8 @@ public class RecipesNASA implements IRecipePool {
         final Fluid i140 = FluidRegistry.getFluid("molten.indalloy140");
 
         // Only register NASA recipes if the required mods are present
-        ItemStack schematic = GTModHandler.getModItem(GalacticraftCore.ID, "item.SchematicsTier1", 0, 0);
-        boolean hasSchematic = true;
+        ItemStack schematic = GTModHandler.getModItem(GalacticraftCore.ID, "item.Schematics", 0, 0);
+        boolean hasSchematic = schematic != null;
         ItemStack rocketOutput = GTModHandler.getModItem(GalacticraftCore.ID, "item.spaceship", 1, 0);
         ItemStack droneOutput = GTModHandler.getModItem(GTNHIntergalactic.ID, "item.MiningDrone", 1, 0);
         ItemStack platingOutput = p != null ? new ItemStack(p.getItem(), 64) : null;
