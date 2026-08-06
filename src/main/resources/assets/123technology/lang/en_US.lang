@@ -715,3 +715,16 @@ ote.la.uxv=UXV 1,073,741,824A Laser Source Hatch
 ote.la.uxvb=UXV 1,073,741,824A Laser Target Hatch
 
 oth.clone.whereami=where am i?
+
+
+
+
+
+
+
+ote.tm.nasa.1=§7A grand workshop for assembling rockets.
+ote.tm.nasa.2=§7Built from Galacticraft and GalaxySpace parts.
+ote.tm.nasa.3=§7Requires a schematic to operate.
+ote.tm.nasa.4=§fPerfect OC enabled.
+ote.tm.nasa.5=§fDefault parallel: 64.
+ote.tm.nasa.6=§7Use the NASA recipe map to build rockets and drones.
